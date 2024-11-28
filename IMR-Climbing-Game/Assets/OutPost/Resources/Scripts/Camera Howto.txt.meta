@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f607f376c30e65f48ab5e725bc816ede
+timeCreated: 1513724746
+licenseType: Store
+TextScriptImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 16272
+  packageName: NYC Block #6
+  packageVersion: 1.1
+  assetPath: Assets/OutPost/Resources/Scripts/Camera Howto.txt
+  uploadId: 219610
