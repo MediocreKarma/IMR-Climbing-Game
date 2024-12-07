@@ -20,6 +20,10 @@ public class GrabbableObject : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (interactable == null)
+        {
+            return;
+        }
         foreach (var interactor in interactable.interactorsSelecting)
         {
             if (interactor is not UnityEngine.XR.Interaction.Toolkit.Interactors.XRRayInteractor)

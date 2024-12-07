@@ -17,3 +17,8 @@ https://docs.google.com/document/d/1i4kILlg-o7syqlPYjyqrpsiklye0J9kipNPYXhmWxJM/
 Homework w6:
 
 https://drive.google.com/drive/folders/1anj83hTQxZYtfq4LJHxIHPqJ9Lzv4A_B?usp=sharing
+
+
+W10:
+
+* Starter Grabber and Grabbable scripts
