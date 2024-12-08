@@ -23,5 +23,4 @@ W10:
 
 * Starter Grabber and Grabbable scripts
 * Hand modeling : Baking, Texture Painting, Weight Painting
-
-Photos: https://drive.google.com/drive/folders/1WHnLTK32VeFumaabI32ykxSiAILVMiH8?usp=sharing
+* Photos: https://drive.google.com/drive/folders/1WHnLTK32VeFumaabI32ykxSiAILVMiH8?usp=sharing
