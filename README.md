@@ -6,15 +6,15 @@ Petrașuc Ana
 
 Grozea Tatiana
 
-Homework w4:
+Homework w5:
 
 https://docs.google.com/document/d/1jNrXO4XmUm6IPgkURCrx0pjm2Q2dPAx63VVFeVdxFGA/edit?usp=sharing
 
-Homework w5:
+Homework w6:
 
 https://docs.google.com/document/d/1i4kILlg-o7syqlPYjyqrpsiklye0J9kipNPYXhmWxJM/edit?usp=sharing
 
-Homework w6:
+Homework w7:
 
 https://drive.google.com/drive/folders/1anj83hTQxZYtfq4LJHxIHPqJ9Lzv4A_B?usp=sharing
 
@@ -23,4 +23,5 @@ W10:
 
 * Starter Grabber and Grabbable scripts
 * Hand modeling : Baking, Texture Painting, Weight Painting
+* Ajusted menu camera and Added XR Toolkit
 * Photos: https://drive.google.com/drive/folders/1WHnLTK32VeFumaabI32ykxSiAILVMiH8?usp=sharing
