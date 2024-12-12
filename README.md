@@ -30,4 +30,6 @@ W10:
 W11:
 
 * Working on Climb Interactable
+* Testing hand on an empty unity project
+* Making the other hand (mirror - hand)
 * Photos: https://drive.google.com/drive/folders/1lbqSUFFklxl4fmG8I46yTUJwar81saFP?usp=sharing
