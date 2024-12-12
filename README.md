@@ -25,3 +25,9 @@ W10:
 * Hand modeling : Baking, Texture Painting, Weight Painting
 * Adjusted Menu Camera and Added XR Toolkit
 * Photos: https://drive.google.com/drive/folders/1WHnLTK32VeFumaabI32ykxSiAILVMiH8?usp=sharing
+
+
+W11:
+
+* Working on Climb Interactable
+* Photos: https://drive.google.com/drive/folders/1lbqSUFFklxl4fmG8I46yTUJwar81saFP?usp=sharing
