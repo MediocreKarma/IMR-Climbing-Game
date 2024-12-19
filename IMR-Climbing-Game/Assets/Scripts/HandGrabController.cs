@@ -7,21 +7,21 @@ using UnityEngine.XR.Interaction.Toolkit.Inputs;
 
 public class HandGrabController : MonoBehaviour
 {
-    private Animator AnimatorComponent { get; set; }
+    private Animator animator;
     private bool isGrabbing = false;
 
     public Vector3 rotationAngle = Vector3.zero;
 
     private void Start()
     {
-        AnimatorComponent = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     public void PerformGrab()
     {
-        if (!isGrabbing)
+        if (animator && !isGrabbing)
         {
-            AnimatorComponent.SetTrigger("Grab");
+            animator.SetTrigger("Grab");
             transform.Rotate(rotationAngle);
             isGrabbing = true;
         }
@@ -29,9 +29,9 @@ public class HandGrabController : MonoBehaviour
 
     public void ReleaseGrab()
     {
-        if (isGrabbing)
+        if (animator && isGrabbing)
         {
-            AnimatorComponent.SetTrigger("GrabbingToIdleTrigger");
+            animator.SetTrigger("GrabbingToIdleTrigger");
             transform.Rotate(-rotationAngle);
             isGrabbing = false;
         }

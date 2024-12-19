@@ -1,56 +1,72 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using NUnit.Framework.Constraints;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
-using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEngine.XR.Interaction.Toolkit.Locomotion.Climbing;
 
 public class GrabbableObject : MonoBehaviour
 {
-    private UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable interactable;
-    private List<HandGrabController> previousHands, activeHands;
+    [Tooltip("The object associated with the left controller of the XR Rig"),]
+    public HandGrabController leftController;
+    
+    [Tooltip("The object associated with the right controller of the XR Rig")]
+    public HandGrabController rightController;
+
+    [Tooltip("The Jump")]
+    public HandDirectedJump jumper;
+
+    private ClimbInteractable climbInteractable = null;
+    private readonly bool[] previouslyGrabbed  = { false, false };
+    private readonly bool[] activelyGrabbing   = { false, false };
+    private readonly HandGrabController[] controllers = { null, null };
 
     void Start()
     {
-        previousHands = new();
-        activeHands = new();
-        interactable = GetComponent<UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable>();
+        climbInteractable = GetComponent<ClimbInteractable>();
+        controllers[0] = leftController;
+        controllers[1] = rightController;
+    }
+
+    private void HandleGrabbingStateChange(int index)
+    {
+        if (!controllers[index])
+        {
+            return;
+        }
+        if (!activelyGrabbing[index] && previouslyGrabbed[index]) 
+        {
+            controllers[index].ReleaseGrab();
+        }
+        else if (activelyGrabbing[index] && !previouslyGrabbed[index])
+        {
+            controllers[index].PerformGrab();
+        }
+    }
+
+    private void HandleJumpingStateChange() 
+    {
+        if (!activelyGrabbing[0] && !activelyGrabbing[1] && previouslyGrabbed[0] ^ previouslyGrabbed[1])
+        {
+            for (int i = 0; i < controllers.Length; i++)
+            {
+                if (previouslyGrabbed[i])
+                {
+                    jumper.PerformJump(controllers[1 - i].transform);
+                }
+            }
+        }
     }
 
     private void FixedUpdate()
     {
-        if (interactable == null)
-        {
-            return;
-        }
-        foreach (var interactor in interactable.interactorsSelecting)
-        {
-            if (interactor is not UnityEngine.XR.Interaction.Toolkit.Interactors.XRRayInteractor)
-            {
-                Debug.LogError("Not XRRayInteractor");
-                continue;
-            }
-            if (!(interactor as UnityEngine.XR.Interaction.Toolkit.Interactors.XRRayInteractor).TryGetComponent<ActionBasedController>(out var acb))
-            {
-                continue;
-            }
-            if (!(acb.model.TryGetComponent<HandGrabController>(out var handGrabController)))
-            {
-                continue;
-            }
-            activeHands.Add(handGrabController);
-            handGrabController.PerformGrab();
-        }
+        activelyGrabbing[0] = XRSelectInteractableExtensions.IsSelectedByLeft(climbInteractable);
+        activelyGrabbing[1] = XRSelectInteractableExtensions.IsSelectedByRight(climbInteractable);
+        HandleGrabbingStateChange(0);
+        HandleGrabbingStateChange(1);
 
-        foreach (var hand in previousHands)
-        {
-            if (!activeHands.Contains(hand))
-            {
-                hand.ReleaseGrab();
-            }
-        }
-        previousHands = activeHands;
-        activeHands = new();
+        HandleJumpingStateChange();
+        previouslyGrabbed[0] = activelyGrabbing[0];
+        previouslyGrabbed[1] = activelyGrabbing[1];
     }
 }
