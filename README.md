@@ -33,3 +33,10 @@ W11:
 * Testing hand on an empty unity project
 * Making the other hand (mirror - hand)
 * Photos: https://drive.google.com/drive/folders/1lbqSUFFklxl4fmG8I46yTUJwar81saFP?usp=sharing
+
+
+W12:
+* Fixed building texture
+* Added BoxColliders to bricks
+* Photos: https://drive.google.com/drive/folders/1LFi2vekjHQj6EkKP9Qr_QhP7ZbUKvzh8?usp=sharing
+
