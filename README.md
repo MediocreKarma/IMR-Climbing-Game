@@ -38,3 +38,7 @@ W12:
 
 * Made climbing barely work on simulator.
 * Implemented jumping.
+* Fixed building texture
+* Added BoxColliders to bricks
+* Photos: https://drive.google.com/drive/folders/1LFi2vekjHQj6EkKP9Qr_QhP7ZbUKvzh8?usp=sharing
+
