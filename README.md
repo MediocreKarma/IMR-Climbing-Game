@@ -47,3 +47,6 @@ W13:
 
 * Fixed climbing, no more jittering
 * Made jumping work correctly, with correct physics
+* Added sounds
+* Synchronized menus and added a bootstrap scene
+* Added colliders to all objects
