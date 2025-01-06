@@ -56,6 +56,10 @@ public class GrabbableObject : MonoBehaviour
                 }
             }
         }
+        if (activelyGrabbing[0] || activelyGrabbing[1])
+        {
+            jumper.ResetJump();
+        }
     }
 
     private void FixedUpdate()
