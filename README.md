@@ -50,3 +50,4 @@ W13:
 * Added sounds
 * Synchronized menus and added a bootstrap scene
 * Added colliders to all objects
+* Grabbing animations
