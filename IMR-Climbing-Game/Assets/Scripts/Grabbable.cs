@@ -13,19 +13,24 @@ public class GrabbableObject : MonoBehaviour
     [Tooltip("The object associated with the right controller of the XR Rig")]
     public HandGrabController rightController;
 
-    [Tooltip("The Jump")]
+    [Tooltip("The Jumper used by the player")]
     public HandDirectedJump jumper;
+
+    [Tooltip("The CharacterController of the player.")]
+    public CharacterController characterController;
 
     private ClimbInteractable climbInteractable = null;
     private readonly bool[] previouslyGrabbed  = { false, false };
     private readonly bool[] activelyGrabbing   = { false, false };
     private readonly HandGrabController[] controllers = { null, null };
+    private float radius;
 
     void Start()
     {
         climbInteractable = GetComponent<ClimbInteractable>();
         controllers[0] = leftController;
         controllers[1] = rightController;
+        radius = characterController.radius;
     }
 
     private void HandleGrabbingStateChange(int index)
@@ -66,6 +71,14 @@ public class GrabbableObject : MonoBehaviour
     {
         activelyGrabbing[0] = XRSelectInteractableExtensions.IsSelectedByLeft(climbInteractable);
         activelyGrabbing[1] = XRSelectInteractableExtensions.IsSelectedByRight(climbInteractable);
+        if (activelyGrabbing[0] || activelyGrabbing[1]) 
+        {
+            characterController.radius = 0.01F;
+        }
+        else
+        {
+            characterController.radius = this.radius;
+        }
         HandleGrabbingStateChange(0);
         HandleGrabbingStateChange(1);
 

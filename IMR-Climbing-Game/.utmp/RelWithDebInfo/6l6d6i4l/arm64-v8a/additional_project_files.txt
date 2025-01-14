@@ -1,0 +1,1 @@
+C:\Users\Alina\Desktop\Code\Unity\IMR-Climbing-Game\IMR-Climbing-Game\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\FramePacing\UnitySwappyWrapper.h

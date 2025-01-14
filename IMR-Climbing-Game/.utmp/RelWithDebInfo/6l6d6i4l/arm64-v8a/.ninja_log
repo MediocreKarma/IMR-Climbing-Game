@@ -1,0 +1,5 @@
+# ninja log v5
+1	180	7563140628580583	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	df953f2bcc90d7fd
+181	294	7563140629691361	C:/Users/Alina/Desktop/Code/Unity/IMR-Climbing-Game/IMR-Climbing-Game/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/6l6d6i4l/obj/arm64-v8a/libswappywrapper.so	892a26ffce5bdbb6
+3	1249	7563235080224395	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	df953f2bcc90d7fd
+1250	2935	7563235097011030	C:/Users/Alina/Desktop/Code/Unity/IMR-Climbing-Game/IMR-Climbing-Game/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/6l6d6i4l/obj/arm64-v8a/libswappywrapper.so	892a26ffce5bdbb6
