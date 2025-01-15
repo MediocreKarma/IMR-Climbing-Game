@@ -53,7 +53,7 @@ public class GrabbableObject : MonoBehaviour
     {
         if (!activelyGrabbing[0] && !activelyGrabbing[1] && previouslyGrabbed[0] ^ previouslyGrabbed[1])
         {
-            for (int i = 0; i < controllers.Length; i++)
+            for (int i = 0; i < 2; i++)
             {
                 if (previouslyGrabbed[i])
                 {
@@ -71,7 +71,7 @@ public class GrabbableObject : MonoBehaviour
     {
         activelyGrabbing[0] = XRSelectInteractableExtensions.IsSelectedByLeft(climbInteractable);
         activelyGrabbing[1] = XRSelectInteractableExtensions.IsSelectedByRight(climbInteractable);
-        if (activelyGrabbing[0] || activelyGrabbing[1]) 
+        if (activelyGrabbing[0] || activelyGrabbing[1] || jumper.IsJumping) 
         {
             characterController.radius = 0.01F;
         }

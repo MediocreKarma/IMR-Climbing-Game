@@ -11,6 +11,11 @@ public class HandDirectedJump : MonoBehaviour
     private Vector3 velocity;
     private bool jumping = false;
 
+    public bool IsJumping
+    {
+        get { return jumping; }
+    }
+
     public void Start()
     {
         if (characterController == null)
