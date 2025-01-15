@@ -15,14 +15,15 @@ public class HandGrabController : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+        Debug.Log(animator);
     }
 
     public void PerformGrab()
     {
         if (animator && !isGrabbing)
         {
-            animator.SetTrigger("Grab");
-            transform.Rotate(rotationAngle);
+            Debug.Log("Perform grab trigger");
+            animator.SetTrigger("GrabTrigger");
             isGrabbing = true;
         }
     }
@@ -31,8 +32,8 @@ public class HandGrabController : MonoBehaviour
     {
         if (animator && isGrabbing)
         {
-            animator.SetTrigger("GrabbingToIdleTrigger");
-            transform.Rotate(-rotationAngle);
+            Debug.Log("Perform ungrab trigger");
+            animator.SetTrigger("UngrabTrigger");
             isGrabbing = false;
         }
     }
