@@ -3,7 +3,7 @@ using UnityEngine;
 public class OutOfBoundsChecker : MonoBehaviour
 {
     [SerializeField] private CharacterController characterController;
-    [SerializeField] private LayerMask objectLayerMask; // Layer to check against
+    [SerializeField] private LayerMask objectLayerMask;
     [SerializeField] private Transform resetTransform;
 
     private void Update()

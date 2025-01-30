@@ -30,7 +30,8 @@ public class GrabbableObject : MonoBehaviour
     private readonly bool[] activelyGrabbing   = { false, false };
     private readonly HandGrabController[] controllers = { null, null };
     private readonly Transform[] transforms = { null, null };
-    private float radius;
+    private float originalCCRadius;
+    private float originalCCHeight;
 
     void Start()
     {
@@ -39,7 +40,8 @@ public class GrabbableObject : MonoBehaviour
         controllers[1] = rightHandController;
         transforms[0] = leftHandTransform;
         transforms[1] = rightHandTransform;
-        radius = characterController.radius;
+        originalCCRadius = characterController.radius;
+        originalCCHeight = characterController.height;
     }
 
     private void HandleGrabbingStateChange(int index)
@@ -76,18 +78,25 @@ public class GrabbableObject : MonoBehaviour
         }
     }
 
+    private void HandleColliderUpdates()
+    {
+        if (activelyGrabbing[0] || activelyGrabbing[1] || jumper.IsJumping)
+        {
+            characterController.radius = 0.001F;
+            characterController.height = 0.001F;
+        }
+        else
+        {
+            characterController.radius = originalCCRadius;
+            characterController.height = originalCCHeight;
+        }
+    }
+
     private void FixedUpdate()
     {
         activelyGrabbing[0] = XRSelectInteractableExtensions.IsSelectedByLeft(climbInteractable);
         activelyGrabbing[1] = XRSelectInteractableExtensions.IsSelectedByRight(climbInteractable);
-        if (activelyGrabbing[0] || activelyGrabbing[1] || jumper.IsJumping) 
-        {
-            characterController.radius = 0.01F;
-        }
-        else
-        {
-            characterController.radius = this.radius;
-        }
+        HandleColliderUpdates();
         HandleGrabbingStateChange(0);
         HandleGrabbingStateChange(1);
 

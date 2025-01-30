@@ -51,3 +51,12 @@ W13:
 * Synchronized menus and added a bootstrap scene
 * Added colliders to all objects
 * Grabbing animations
+
+W14 & Final Adjustments:
+
+* Updated Climbing
+* Made slopes work sometimes*
+* Added Tutorial Sign
+
+
+Demo: https://youtu.be/QhZx_T88aU0

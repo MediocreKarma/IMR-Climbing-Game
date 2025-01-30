@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class HandDirectedJump : MonoBehaviour
@@ -11,9 +12,11 @@ public class HandDirectedJump : MonoBehaviour
     private Vector3 velocity;
     private bool jumping = false;
 
+    public bool IsSliding { get; set; }
+
     public bool IsJumping
     {
-        get { return jumping; }
+        get { return jumping && IsSliding; }
     }
 
     public void Start()
@@ -35,22 +38,28 @@ public class HandDirectedJump : MonoBehaviour
         }
     }
 
+    private float groundedTime = 0f;
+    private const float groundedThreshold = 0.1f; // 100 milliseconds
+
     public void Update()
     {
         if (!jumping)
         {
             return;
         }
-        // Apply the jump velocity to the CharacterController
         characterController.Move(velocity * Time.deltaTime);
-
-        // Apply gravity to the jump over time
         velocity.y += Physics.gravity.y * Time.deltaTime;
-
-        // Check for collisions to stop the jump
-        if (characterController.isGrounded)
+        if (characterController.isGrounded && !IsSliding)
         {
-            ResetJump();
+            groundedTime += Time.deltaTime;
+            if (groundedTime >= groundedThreshold)
+            {
+                ResetJump();
+            }
+        }
+        else
+        {
+            groundedTime = 0f; // Reset timer if the player is not continuously grounded
         }
     }
 
