@@ -50,12 +50,10 @@ public class GrabbableObject : MonoBehaviour
         }
         if (!activelyGrabbing[index] && previouslyGrabbed[index]) 
         {
-            Debug.Log("Releasing grab");
             controllers[index].ReleaseGrab();
         }
         else if (activelyGrabbing[index] && !previouslyGrabbed[index])
         {
-            Debug.Log("Performing grab");
             controllers[index].PerformGrab();
         }
     }
