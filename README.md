@@ -1,4 +1,9 @@
-# IMR-Climbing-Game
+# 🎮 ClimbMaster VR – Reach New Heights! 🚀
+
+**IMR-Climbing-Game** is a VR climbing game developed using **Unity** and **XR Toolkit**. The project focuses on **realistic climbing mechanics**, **hand interactions**, and **physics-based movement**. Players can grab, climb, and jump while interacting with the environment using VR controllers. The game includes **custom hand modeling**, **grabbing animations**, and **immersive sound effects** for a more engaging experience.  
+
+Below, you can find our weekly progress updates, including development logs, implemented features, and media files. 🎮🔧  
+
 
 Chirvasă George-Matei
 
